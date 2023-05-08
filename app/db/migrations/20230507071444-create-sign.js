@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      letter: {
+      character: {
         type: Sequelize.STRING
       },
       image: {

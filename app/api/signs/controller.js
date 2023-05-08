@@ -1,32 +1,30 @@
 const { Sign } = require('../../db/models');
 
 const textToSign = async (req, res) => {
-    let { letters } = req.query;
+    let { text } = req.query;
 
-    if (!letters) {
+    if (!text) {
         return res.status(400).json({
-            error: 'Missing letters',
+            error: 'Missing text',
         });
     }
 
-    letters = letters.toUpperCase();
+    const characters = text.split('');
+    const images = [];
 
-    const signs = await Sign.findAll({
-        where: {
-            letter: letters.split(''),
-        },
-    });
-
-    if (!signs.length) {
-        return res.status(400).json({
-            error: 'No signs found',
-        });
+    for (const character of characters) {
+        const sign = await Sign.findOne({ where: { character } });
+        if (sign) {
+            images.push(sign.image);
+        } else {
+            return res.status(400).json({
+                error: `Character ${character} not found`,
+            });
+        }
     }
-    
-    const images = signs.map((sign) => sign.image);
 
     return res.status(200).json({
-        signs: images,
+        images,
     });
 }
 
