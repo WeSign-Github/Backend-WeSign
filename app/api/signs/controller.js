@@ -10,12 +10,13 @@ const textToSign = async (req, res) => {
     }
 
     const characters = text.split('');
-    const images = [];
+    const data = [];
 
     for (const character of characters) {
         const sign = await Sign.findOne({ where: { character } });
         if (sign) {
-            images.push(sign.image);
+            // push character and image field
+            data.push({ character: sign.character, image: sign.image });
         } else {
             return res.status(400).json({
                 error: `Character ${character} not found`,
@@ -24,7 +25,7 @@ const textToSign = async (req, res) => {
     }
 
     return res.status(200).json({
-        images,
+        data,
     });
 }
 
