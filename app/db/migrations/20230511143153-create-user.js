@@ -2,17 +2,29 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Signs', {
+    await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      character: {
+      provider_id: {
         type: Sequelize.STRING
       },
-      image: {
+      provider_name: {
+        type: Sequelize.STRING
+      },
+      first_name: {
+        type: Sequelize.STRING
+      },
+      email: {
+        type: Sequelize.STRING
+      },
+      is_verified: {
+        type: Sequelize.BOOLEAN
+      },
+      avatar: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -24,9 +36,8 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.createTable()
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Signs');
+    await queryInterface.dropTable('Users');
   }
 };
