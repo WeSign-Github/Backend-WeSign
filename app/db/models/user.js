@@ -5,8 +5,13 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
+      User.hasOne(models.Progress_User, {
+        foreignKey: 'user_id',
+        as: 'progress'
+      });
+
       User.belongsToMany(models.Lesson, {
-        through: 'LessonUser',
+        through: 'LessonUsers',
         as: 'lessons',
         foreignKey: 'user_id'
       });
@@ -22,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
-    // tableName: 'users'
+    tableName: 'users'
   });
   return User;
 };

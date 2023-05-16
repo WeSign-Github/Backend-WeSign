@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       Lesson.belongsToMany(models.User, {
-        through: 'LessonUser',
+        through: 'LessonUsers',
         as: 'users',
         foreignKey: 'lesson_id'
       });
@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Lesson',
+    tableName: 'lessons'
   });
   return Lesson;
 };

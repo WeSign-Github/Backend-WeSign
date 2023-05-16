@@ -14,11 +14,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   LessonUser.init({
+    course_id: DataTypes.INTEGER,
     lesson_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'LessonUser',
+    modelName: 'Lesson_User',
+    tableName: 'lessonusers'
   });
   return LessonUser;
 };
