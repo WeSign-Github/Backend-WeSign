@@ -2,3 +2,4 @@ node_modules/
 public/
 .env
 Dockerfile
+app/services/firebase/serviceAccountKey.json
