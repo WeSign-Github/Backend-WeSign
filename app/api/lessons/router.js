@@ -3,9 +3,9 @@ const router = express.Router();
 
 const auth = require('../../middleware/auth');
 
-const { updateProgress, show } = require('./controller');
+const { completeLesson, show } = require('./controller');
 
 router.get('/:id', show)
-router.get('/:id/complete', auth, updateProgress)
+router.post('/:id/complete', auth, completeLesson)
 
 module.exports = router;

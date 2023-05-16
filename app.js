@@ -17,5 +17,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', signsRouter);
 app.use('/api/courses', coursesRouter);
 app.use('/api/lessons', lessonsRouter);
+app.use('/api/users', usersRouter);
 
 module.exports = app;

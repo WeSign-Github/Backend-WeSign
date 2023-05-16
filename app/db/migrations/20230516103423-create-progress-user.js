@@ -2,17 +2,23 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('LessonUsers', {
+    await queryInterface.createTable('Progress_Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      user_id: {
+        type: Sequelize.INTEGER
+      },
+      course_id: {
+        type: Sequelize.INTEGER
+      },
       lesson_id: {
         type: Sequelize.INTEGER
       },
-      user_id: {
+      learning_percentage: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -25,22 +31,10 @@ module.exports = {
       }
     });
 
-    await queryInterface.addConstraint('LessonUsers', {
-      fields: ['lesson_id'],
-      type: 'foreign key',
-      name: 'fk_lesson_id',
-      references: {
-        table: 'Lessons',
-        field: 'id'
-      },
-      onDelete: 'cascade',
-      onUpdate: 'cascade'
-    });
-
-    await queryInterface.addConstraint('LessonUsers', {
+    await queryInterface.addConstraint('Progress_Users', {
       fields: ['user_id'],
       type: 'foreign key',
-      name: 'fk_user_id',
+      name: 'fk_progress_user_id',
       references: {
         table: 'Users',
         field: 'id'
@@ -48,8 +42,32 @@ module.exports = {
       onDelete: 'cascade',
       onUpdate: 'cascade'
     });
+
+    await queryInterface.addConstraint('Progress_Users', {
+      fields: ['course_id'],
+      type: 'foreign key',
+      name: 'fk_progress_course_id',
+      references: {
+        table: 'Courses',
+        field: 'id'
+      },
+      onDelete: 'cascade',
+      onUpdate: 'cascade'
+    });
+
+    await queryInterface.addConstraint('Progress_Users', {
+      fields: ['lesson_id'],
+      type: 'foreign key',
+      name: 'fk_progress_lesson_id',
+      references: {
+        table: 'Lessons',
+        field: 'id'
+      },
+      onDelete: 'cascade',
+      onUpdate: 'cascade'
+    });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('LessonUsers');
+    await queryInterface.dropTable('Progress_Users');
   }
 };
