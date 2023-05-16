@@ -15,7 +15,6 @@ const textToSign = async (req, res) => {
     for (const character of characters) {
         const sign = await Sign.findOne({ where: { character } });
         if (sign) {
-            // push character and image field
             data.push({ character: sign.character, image: sign.image });
         } else {
             return res.status(400).json({
