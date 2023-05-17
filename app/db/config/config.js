@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fs = require('fs');
 
 const {
   DB_HOST,
@@ -14,7 +15,13 @@ module.exports =
     "password": DB_PASS,
     "database": DB_NAME,
     "host": DB_HOST,
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectOptions": {
+      "bigNumberStrings": true,
+      "ssl": {
+        "ca": fs.readFileSync(__dirname + '/certificate.pem')
+      }
+    }
   },
   "test": {
     "username": DB_USER,
