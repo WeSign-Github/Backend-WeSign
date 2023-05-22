@@ -18,11 +18,15 @@ module.exports = {
       first_name: {
         type: Sequelize.STRING
       },
+      last_name: {
+        type: Sequelize.STRING
+      },
       email: {
         type: Sequelize.STRING
       },
       is_verified: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       avatar: {
         type: Sequelize.STRING
