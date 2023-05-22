@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const validateRequest = require("../../utils/validateRequest");
+const validateRequest = require("../../../utils/validateRequest");
 
 module.exports = async (req, res, next) => {
     const schema = Joi.object({
