@@ -5,7 +5,7 @@ const auth = require('../../middleware/auth');
 
 const { completeLesson, show } = require('./controller');
 
-router.get('/:id', show)
+router.get('/:id', auth, show)
 router.post('/:id/complete', auth, completeLesson)
 
 module.exports = router;
