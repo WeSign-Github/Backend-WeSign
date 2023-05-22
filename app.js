@@ -4,6 +4,9 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
+const notFoundMiddleware = require('./app/middleware/not-found')
+const errorHandlerMiddleware = require('./app/middleware/handle-error');
+
 const usersRouter = require('./app/api/users/router');
 const authRouter = require('./app/api/auth/router');
 const signsRouter = require('./app/api/signs/router');
@@ -20,5 +23,8 @@ app.use('/api/courses', coursesRouter);
 app.use('/api/lessons', lessonsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/auth', authRouter);
+
+app.use(notFoundMiddleware)
+app.use(errorHandlerMiddleware)
 
 module.exports = app;
