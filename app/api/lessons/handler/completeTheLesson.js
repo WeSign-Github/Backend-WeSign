@@ -10,8 +10,6 @@ module.exports = async (req, res) => {
         }
     })
 
-    console.log(user);
-
     const lesson = await Lesson.findByPk(id);
     const user_already_completed = await lesson.hasUser(user.id)
 
