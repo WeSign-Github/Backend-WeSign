@@ -16,7 +16,7 @@ module.exports = async (req, res, next) => {
 
         const decodedToken = await firebase.auth().verifyIdToken(token);
 
-        req.user = { userId: decodedToken.uid };
+        req.user = decodedToken;
         next();
     } catch (error) {
         res.status(403).json(error);
