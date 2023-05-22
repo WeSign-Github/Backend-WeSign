@@ -5,10 +5,12 @@ module.exports = async (req, res) => {
 
     const user = await User.findOne({
         where: {
-            // provider_id: req.user.uid
-            provider_id: "dsfkjdsfkjh"
+            provider_id: req.user.uid
+            // provider_id: "dsfkjdsfkjh"
         }
     })
+
+    console.log(user);
 
     const lesson = await Lesson.findByPk(id);
     const user_already_completed = await lesson.hasUser(user.id)
