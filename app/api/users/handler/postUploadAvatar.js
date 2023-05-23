@@ -1,5 +1,4 @@
 const { User } = require('../../../db/models')
-const { imgUpload } = require('modules/imgUpload')
 
 module.exports = async (req,res) => {
   const { provider_id, provider_name, first_name, last_name, email, avatar } = req.body
