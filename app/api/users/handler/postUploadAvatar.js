@@ -19,17 +19,12 @@ function getPublicUrl(filename) {
 
 // TODO: upload image to gcs
 module.exports = async (req,res,next) => {
-  if (!req.file) return next();
-
-  // Check file size
-  const fileSizeInBytes = req.file.size;
-  const maxSizeInBytes = 5 * 1024 * 1024; // 5 MB
-  if (fileSizeInBytes > maxSizeInBytes) {
-    return res.status(400).json({ message: 'File size exceeds the limit' });
+  if (!req.file) {
+    return res.status(400).json({ message: 'No file uploaded' });
   }
 
-  const gcsname = dateFormat(new Date(), "yyyymmdd-HHMMss")
-  const file = bucket.file(gcsname)
+  const gcsname = req.file.originalname;
+  const file = bucket.file(gcsname);
 
     const stream = file.createWriteStream({
         metadata: {

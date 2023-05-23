@@ -1,6 +1,13 @@
 const Multer = require('multer');
 
-const multer = Multer({
+// Multer for handling file uploads
+const upload = Multer({
   storage: Multer.MemoryStorage,
-  fileSize: 5 * 1024 * 1024
+  limit:{
+    fileSize: 5 * 1024 * 1024 //5 MB
+  }
 })
+
+module.exports={
+  upload,
+};
