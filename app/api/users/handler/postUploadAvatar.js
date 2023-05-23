@@ -1,48 +1,25 @@
-const {Storage} = require('@google-cloud/storage')
-const fs = require('fs')
-const path = require('path');
+const { User } = require('../../../db/models')
+const { imgUpload } = require('modules/imgUpload')
 
+module.exports = async (req,res) => {
+  const { provider_id, provider_name, first_name, last_name, email, avatar } = req.body
 
-// CONNECT GOOGLE CLOUD STORAGE
-const pathKey = path.resolve('./serviceaccountkey.json')
-const gcs = new Storage({
-  projectId: 'wesign-app',
-  keyFilename: pathKey
-})
+    // const emailUser = await User.findOne({
+    //     where: { email: req.body.email }
+    // });
 
-// CONNECT STORAGE BUCKETS
-const bucketName = 'wesign-bucket'
-const bucket = gcs.bucket(bucketName)
-function getPublicUrl(filename) {
-    return 'https://storage.googleapis.com/' + bucketName + '/' + filename;
-}
+    // if (emailUser) {
+    //     throw new ConflictError('Email or username already exists');
+    // }
 
-// TODO: upload image to gcs
-module.exports = async (req,res,next) => {
-  if (!req.file) {
-    return res.status(400).json({ message: 'No file uploaded' });
-  }
-
-  const gcsname = req.file.originalname;
-  const file = bucket.file(gcsname);
-
-    const stream = file.createWriteStream({
-        metadata: {
-            contentType: req.file.mimetype
-        }
+    const newAvatar = await User.update({
+        provider_id,
+        provider_name,
+        first_name,
+        last_name,
+        email,
+        avatar
     })
 
-    stream.on('error', (err) => {
-        req.file.cloudStorageError = err
-        next(err)
-    })
-
-    stream.on('finish', () => {
-        req.file.cloudStorageObject = gcsname
-        req.file.cloudStoragePublicUrl = getPublicUrl(gcsname)
-        next()
-    })
-
-    stream.end(req.file.buffer)
-    res.status(200).json({ message: 'File uploaded successfully' });
+    return newAvatar;
 }
