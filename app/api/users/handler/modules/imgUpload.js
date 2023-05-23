@@ -45,4 +45,4 @@ imgUpload.uploadToGcs = async (req,res,next) => {
     stream.end(req.file.buffer)
 }
 
-module.exports = imgUpload;
+module.exports = {imgUpload};

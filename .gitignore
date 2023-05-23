@@ -5,11 +5,12 @@ package-lock.json
 Dockerfile
 app/services/firebase/serviceAccountKey.json
 app/db/config/certificate.pem
+app/api/users/handler/modules/serviceaccountkey.json
 
+# Apple stuff
 .DS_Store
 app/.DS_Store
 app/api/.DS_Store
 app/api/users/.DS_Store
 app/api/users/handler/.DS_Store
-app/api/users/handler/modules/serviceaccountkey.json
 app/services/.DS_Store
