@@ -14,3 +14,4 @@ app/api/.DS_Store
 app/api/users/.DS_Store
 app/api/users/handler/.DS_Store
 app/services/.DS_Store
+serviceaccountkey.json

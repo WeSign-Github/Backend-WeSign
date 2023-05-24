@@ -12,17 +12,19 @@ const gcs = new Storage({
 // CONNECT STORAGE BUCKETS
 const bucketName = 'wesign-bucket'
 const bucket = gcs.bucket(bucketName)
+
 function getPublicUrl(filename) {
-    return 'https://storage.googleapis.com/' + bucketName + '/' + filename;
+  return `https://storage.googleapis.com/${bucketName}/${filename}`;
 }
 
 // UPLOAD IMAGE TO GCS
 let imgUpload = {}
 
 imgUpload.uploadToGcs = async (req,res,next) => {
+
   if (!req.file) return next();
 
-  const gcsname = req.file.originalname;
+  const gcsname = `avatars/${req.user.uid}${path.extname(req.file.originalname)}`;
   const file = bucket.file(gcsname);
 
     const stream = file.createWriteStream({
