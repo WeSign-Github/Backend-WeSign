@@ -19,6 +19,11 @@ module.exports = async (req, res, next) => {
             .max(30)
             .required(),
 
+        display_name: Joi.string()
+            .min(2)
+            .max(30)
+            .required(),
+
         email: Joi.string()
             .email({ tlds: { allow: true } })
             .required(),
