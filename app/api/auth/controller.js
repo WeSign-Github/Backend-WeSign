@@ -6,7 +6,9 @@ const register = async (req, res, next) => {
         const result = await authRegister(req)
 
         res.status(StatusCodes.CREATED).json({
-            data: result
+            data: result,
+            message: "Successfully get all courses",
+            error: false
         })
     } catch (error) {
         next(error)
