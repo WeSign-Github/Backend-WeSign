@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Sign.init({
-    character: DataTypes.STRING,
+    word: DataTypes.STRING,
     image: DataTypes.STRING
   }, {
     sequelize,
