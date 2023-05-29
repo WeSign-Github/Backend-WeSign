@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const validateRequest = require("../../utils/validateRequest");
+const validateRequest = require("../../../utils/validateRequest");
 
 module.exports = async (req, res, next) => {
     const schema = Joi.object({
@@ -15,6 +15,11 @@ module.exports = async (req, res, next) => {
             .required(),
 
         last_name: Joi.string()
+            .min(2)
+            .max(30)
+            .required(),
+
+        display_name: Joi.string()
             .min(2)
             .max(30)
             .required(),

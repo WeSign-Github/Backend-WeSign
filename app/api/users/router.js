@@ -1,9 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const { me, learningProgress } = require('./controller')
+const auth = require('../../middleware/auth');
+const {upload} = require('../../middleware/multer');
+const {imgUpload} = require('./handler/modules/imgUpload')
 
-router.get('/me', me);
-router.get('/learning-progress', learningProgress);
+const { me,
+  learningProgress,
+  uploadAvatar} = require('./controller')
+
+router.get('/me', auth, me);
+router.get('/learning-progress', auth, learningProgress);
+// TODO : routing upload avatar
+router.post('/insert-avatar', auth, upload.single('avatar'), imgUpload.uploadToGcs, uploadAvatar);
 
 module.exports = router;

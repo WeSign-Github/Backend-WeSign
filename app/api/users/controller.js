@@ -1,47 +1,45 @@
-const { User, Course, Lesson, Progress_User } = require('../../db/models');
+const { StatusCodes } = require('http-status-codes');
 
-const me = async (req, res) => {
-	let data = await User.findOne({
-		where: {
-			id: 1
-		}
-	});
+const getLearningProgress = require('./handler/getLearningProgress');
+const getLoggedUser = require('./handler/getLoggedUser');
+const postUploadAvatar = require('./handler/postUploadAvatar');
 
-	return res.status(200).json({
-		data,
-	})
+const me = async (req, res, next) => {
+    try {
+        let result = await getLoggedUser(req);
+
+        res.status(StatusCodes.OK).json({
+            data: result
+        })
+    } catch (error) {
+        next(error)
+    }
 }
 
-const learningProgress = async (req, res) => {
-	let progress = await Progress_User.findAll({
-		where: {
-			user_id: 1
-		},
-		include: [
-			{
-				model: Course,
-				as: 'course',
-				attributes: ['title']
-			},
-			{
-				model: Lesson,
-				as: 'lesson',
-				attributes: ['title']
-			}
-		]
-	});
+const learningProgress = async (req, res, next) => {
+    try {
+        let result = await getLearningProgress(req);
 
-	progress = progress.map(item => {
-		return {
-			course: item.course.title,
-			lesson: item.lesson.title,
-			learning_percentage: item.learning_percentage
-		}
-	})
-
-	return res.status(200).json({
-		data: progress,
-	})
+        res.status(StatusCodes.OK).json({
+            data: result
+        })
+    } catch (error) {
+        next(error)
+    }
 }
 
-module.exports = { me, learningProgress };
+const uploadAvatar = async (req,res,next) => {
+    try {
+        let result = await postUploadAvatar(req);
+    
+        res.status(StatusCodes.OK).json({
+            data: result
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+module.exports = { me,
+    learningProgress,
+    uploadAvatar };
