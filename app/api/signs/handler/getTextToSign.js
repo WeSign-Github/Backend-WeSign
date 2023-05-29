@@ -1,26 +1,23 @@
 const { Sign } = require('../../../db/models');
+const { NotFoundError } = require('../../../errors');
 
 module.exports = async (req, res) => {
     let { text } = req.query;
+    let data = [];
 
-    if (!text) {
-        return res.status(400).json({
-            error: 'Missing text',
-        });
-    }
+    if (text) {
+        const words = text.split(' ');
 
-    const characters = text.split('');
-    const data = [];
-
-    for (const character of characters) {
-        const sign = await Sign.findOne({ where: { character } });
-        if (sign) {
-            data.push({ character: sign.character, image: sign.image });
-        } else {
-            return res.status(400).json({
-                error: `Character ${character} not found`,
-            });
+        for (const word of words) {
+            const sign = await Sign.findOne({ where: { word } });
+            if (sign) {
+                data.push({ word: sign.word, image: sign.image });
+            } else {
+                throw new NotFoundError(`Sign for word ${word} not found`);
+            }
         }
+    } else {
+        data = await Sign.findAll();
     }
 
     return data;

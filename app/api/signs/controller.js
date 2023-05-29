@@ -6,7 +6,9 @@ const textToSign = async (req, res, next) => {
         let result = await getTextToSign(req);
 
         res.status(StatusCodes.OK).json({
-            data: result
+            data: result,
+            message: "Successfully get sign",
+            error: false
         })
     } catch (error) {
         next(error)
