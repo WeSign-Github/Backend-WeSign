@@ -7,7 +7,9 @@ const show = async (req, res, next) => {
         let result = await getOneLesson(req)
 
         res.status(StatusCodes.OK).json({
-            data: result
+            data: result,
+            message: "Successfully get all lessons",
+            error: false
         })
     } catch (error) {
         next(error)
@@ -19,7 +21,9 @@ const completeLesson = async (req, res, next) => {
         let result = await completeTheLesson(req)
 
         res.status(StatusCodes.OK).json({
-            data: result
+            data: result,
+            message: "Successfully complete the lesson",
+            error: false
         })
     } catch (error) {
         next(error)
