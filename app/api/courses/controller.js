@@ -7,7 +7,9 @@ const index = async (req, res, next) => {
         const result = await getAllCourses(req);
 
         res.status(StatusCodes.OK).json({
-            data: result
+            data: result,
+            message: "Successfully get all courses",
+            error: false
         })
     } catch (error) {
         next(error)
@@ -19,7 +21,9 @@ const show = async (req, res, next) => {
         const result = await getOneCourse(req);
 
         res.status(StatusCodes.OK).json({
-            data: result
+            data: result,
+            message: "Successfully get one course",
+            error: false
         })
     } catch (error) {
         next(error)
