@@ -1,15 +1,51 @@
-const { User } = require('../../db/models');
+const { StatusCodes } = require('http-status-codes');
 
-const me = async(req,res) =>{
-  let data = await User.findOne({
-    where: {
-      provider_id:"abcdef"
+const getLearningProgress = require('./handler/getLearningProgress');
+const getLoggedUser = require('./handler/getLoggedUser');
+const postUploadAvatar = require('./handler/postUploadAvatar');
+
+const me = async (req, res, next) => {
+    try {
+        let result = await getLoggedUser(req);
+
+        res.status(StatusCodes.OK).json({
+            data: result,
+            message: "Successfully get logged user data",
+            error: false
+        })
+    } catch (error) {
+        next(error)
     }
-  });
-
-  return res.status(200).json({
-    data,
-  })
 }
 
-module.exports = {me};
+const learningProgress = async (req, res, next) => {
+    try {
+        let result = await getLearningProgress(req);
+
+        res.status(StatusCodes.OK).json({
+            data: result,
+            message: "Successfully get user learning progress",
+            error: false
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+const uploadAvatar = async (req,res,next) => {
+    try {
+        let result = await postUploadAvatar(req);
+    
+        res.status(StatusCodes.CREATED).json({
+            data: result,
+            message: "Successfully upload avatar",
+            error: false
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+module.exports = { me,
+    learningProgress,
+    uploadAvatar };

@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const auth = require('../../middleware/auth');
+const { index, show } = require('./controller');
 
-const { textToSign } = require('./controller');
-
-router.get('/text-to-sign', auth, textToSign);
+router.get('/', auth, index)
+router.get('/:id', auth, show)
 
 module.exports = router;
