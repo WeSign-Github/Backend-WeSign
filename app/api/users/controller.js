@@ -9,7 +9,9 @@ const me = async (req, res, next) => {
         let result = await getLoggedUser(req);
 
         res.status(StatusCodes.OK).json({
-            data: result
+            data: result,
+            message: "Successfully get logged user data",
+            error: false
         })
     } catch (error) {
         next(error)
@@ -21,7 +23,9 @@ const learningProgress = async (req, res, next) => {
         let result = await getLearningProgress(req);
 
         res.status(StatusCodes.OK).json({
-            data: result
+            data: result,
+            message: "Successfully get user learning progress",
+            error: false
         })
     } catch (error) {
         next(error)
@@ -32,8 +36,10 @@ const uploadAvatar = async (req,res,next) => {
     try {
         let result = await postUploadAvatar(req);
     
-        res.status(StatusCodes.OK).json({
-            data: result
+        res.status(StatusCodes.CREATED).json({
+            data: result,
+            message: "Successfully upload avatar",
+            error: false
         })
     } catch (error) {
         next(error)
