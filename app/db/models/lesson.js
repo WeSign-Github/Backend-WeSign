@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Lesson.init({
     course_id: DataTypes.INTEGER,
-    title: DataTypes.STRING
+    title: DataTypes.STRING,
+    thumbnail: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Lesson',
