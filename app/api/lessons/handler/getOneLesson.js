@@ -22,9 +22,9 @@ module.exports = async (req, res) => {
     });
 
     if (nextLesson) {
-        lesson.dataValues.nextLessonId = nextLesson.id;
+        lesson.dataValues.next_lesson_id = nextLesson.id;
     } else {
-        lesson.dataValues.nextLessonId = null;
+        lesson.dataValues.next_lesson_id = null;
     }
 
     return lesson;
