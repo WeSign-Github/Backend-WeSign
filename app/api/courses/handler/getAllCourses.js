@@ -1,13 +1,7 @@
 const { Course } = require('../../../db/models');
 
 module.exports = async (req, res) => {
-    const { language } = req.query;
-
-    const courses = await Course.findAll({
-        where: {
-            language,
-        }
-    });
+    const courses = await Course.findAll();
 
     return courses;
 }
