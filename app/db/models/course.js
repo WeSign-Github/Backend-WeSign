@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Course.init({
     title: DataTypes.STRING,
+    language: DataTypes.ENUM('bisindo', 'sibi'),
     description: DataTypes.TEXT
   }, {
     sequelize,
