@@ -1,5 +1,6 @@
 const { Lesson } = require('../../../db/models');
 const { NotFoundError } = require('../../../errors');
+const { Op } = require('sequelize');
 
 module.exports = async (req, res) => {
     const { id } = req.params
@@ -8,6 +9,22 @@ module.exports = async (req, res) => {
 
     if (!lesson) {
         throw new NotFoundError('Lesson not found');
+    }
+
+    const nextLesson = await Lesson.findOne({
+        where: {
+            id: {
+                [Op.gt]: lesson.id
+            },
+            course_id: lesson.course_id
+        },
+        order: [['id', 'ASC']]
+    });
+
+    if (nextLesson) {
+        lesson.dataValues.next_lesson_id = nextLesson.id;
+    } else {
+        lesson.dataValues.next_lesson_id = null;
     }
 
     return lesson;

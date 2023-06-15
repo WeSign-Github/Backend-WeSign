@@ -12,6 +12,9 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
+      language: {
+        type: Sequelize.ENUM('bisindo', 'sibi')
+      },
       description: {
         type: Sequelize.TEXT
       },

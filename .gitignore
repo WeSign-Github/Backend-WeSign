@@ -2,7 +2,6 @@ node_modules/
 public/
 .env
 package-lock.json
-Dockerfile
 app/services/firebase/serviceAccountKey.json
 app/db/config/certificate.pem
 app/api/users/handler/modules/serviceaccountkey.json
