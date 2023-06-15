@@ -23,6 +23,8 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#cloud-architecture">Cloud Architecture</a></li>
+        <li><a href="#erd">ERD</a></li>
       </ul>
     </li>
     <li>
@@ -32,9 +34,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#api-docs">API Docs</a></li>
   </ol>
 </details>
 
