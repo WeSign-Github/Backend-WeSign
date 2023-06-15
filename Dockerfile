@@ -2,10 +2,10 @@ FROM node:18.16.0-alpine
 
 WORKDIR /usr/src/app
 
-COPY package*.json /usr/src/app
+COPY package*.json ./
 RUN npm ci
 USER node
-COPY . /usr/src/app
+COPY . ./
 
 EXPOSE 3000
 
