@@ -14,15 +14,6 @@ steps:
     args:
       ["push", "asia-southeast2-docker.pkg.dev/$PROJECT_ID/wesign/backend:1"]
 
-  # create environment file
-  - name: "gcr.io/cloud-builders/gcloud"
-    entrypoint: "bash"
-    args:
-      [
-        "-c",
-        'echo "DB_HOST=$$DB_HOST\nDB_NAME=$$DB_NAME\nDB_USER=$$DB_USER\nDB_PASS=$$DB_PASS" > .env',
-      ]
-
   # deploy to cloud run
   - name: "gcr.io/cloud-builders/gcloud"
     args:
@@ -37,18 +28,6 @@ steps:
         "--region",
         "asia-southeast2",
         "--allow-unauthenticated",
-        "--update-env-vars",
-        "$(cat .env)",
+        "--set-secrets",
+        "DB_HOST=DB_HOST:1,DB_USER=DB_USER:1,DB_PASS=DB_PASS:1,DB_NAME=DB_NAME:1",
       ]
-    secretEnv: ["DB_HOST", "DB_NAME", "DB_USER", "DB_PASS"]
-
-availableSecrets:
-  secretManager:
-    - versionName: projects/135901466683/secrets/DB_HOST/versions/1
-      env: "DB_HOST"
-    - versionName: projects/135901466683/secrets/DB_NAME/versions/1
-      env: "DB_NAME"
-    - versionName: projects/135901466683/secrets/DB_USER/versions/1
-      env: "DB_USER"
-    - versionName: projects/135901466683/secrets/DB_PASS/versions/1
-      env: "DB_PASS"
