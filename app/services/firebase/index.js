@@ -1,7 +1,6 @@
 require('dotenv').config();
 const firebase = require("firebase-admin");
 
-const { FIREBASE_PROJECT } = process.env;
 const credentials = require("./serviceAccountKey.json");
 
 firebase.initializeApp({
