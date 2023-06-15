@@ -37,8 +37,8 @@ steps:
         "--region",
         "asia-southeast2",
         "--allow-unauthenticated",
-        "--env-vars-file",
-        ".env",
+        "--update-env-vars",
+        "$(cat .env)",
       ]
     secretEnv: ["DB_HOST", "DB_NAME", "DB_USER", "DB_PASS"]
 
