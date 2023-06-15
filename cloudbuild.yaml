@@ -29,5 +29,5 @@ steps:
         "asia-southeast2",
         "--allow-unauthenticated",
         "--set-secrets",
-        "DB_HOST=DB_HOST:1,DB_USER=DB_USER:1,DB_PASS=DB_PASS:1,DB_NAME=DB_NAME:1",
+        "DB_HOST=DB_HOST:1,DB_USER=DB_USER:1,DB_PASS=DB_PASS:1,DB_NAME=DB_NAME:1,FIREBASE_SERVICE_ACCOUNT_KEY=FIREBASE_SERVICE_ACCOUNT_KEY:1",
       ]
