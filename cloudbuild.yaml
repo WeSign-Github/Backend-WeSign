@@ -20,7 +20,7 @@ steps:
       [
         "run",
         "deploy",
-        "api-wesign",
+        "wesign-backend",
         "--image",
         "asia-southeast2-docker.pkg.dev/$PROJECT_ID/wesign/backend:1",
         "--platform",
