@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
         last_name,
         display_name,
         email,
-        avatar: `https://api.dicebear.com/6.x/fun-emoji/svg?seed=${avatarName[Math.floor(Math.random() * avatarName.length)]}`
+        avatar: `https://api.dicebear.com/6.x/fun-emoji/png?seed=${avatarName[Math.floor(Math.random() * avatarName.length)]}`
     });
 
     return newUser;
