@@ -29,10 +29,10 @@ steps:
         "asia-southeast2",
         "--allow-unauthenticated",
         "--set-env-vars",
-        "DB_HOST=$$DB_HOST",
-        "DB_NAME=$$DB_NAME",
-        "DB_USER=$$DB_USER",
-        "DB_PASS=$$DB_PASS",
+        "DB_HOST=$DB_HOST",
+        "DB_NAME=$DB_NAME",
+        "DB_USER=$DB_USER",
+        "DB_PASS=$DB_PASS",
       ]
     secretEnv: ["DB_HOST", "DB_NAME", "DB_USER", "DB_PASS"]
 
