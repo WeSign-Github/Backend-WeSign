@@ -16,7 +16,8 @@ steps:
 
   # deploy to cloud run
   - name: "gcr.io/cloud-builders/gcloud"
-    args: [
+    args:
+      [
         "run",
         "deploy",
         "api-wesign",
@@ -28,10 +29,10 @@ steps:
         "asia-southeast2",
         "--allow-unauthenticated",
         "--set-env-vars",
-        "DB_HOST=$$DB_HOST,
-        DB_NAME=$$DB_NAME,
-        DB_USER=$$DB_USER,
-        DB_PASS=$$DB_PASS",
+        "DB_HOST=$$DB_HOST",
+        "DB_NAME=$$DB_NAME",
+        "DB_USER=$$DB_USER",
+        "DB_PASS=$$DB_PASS",
       ]
 
 availableSecrets:
@@ -44,6 +45,3 @@ availableSecrets:
       env: "DB_USER"
     - versionName: projects/135901466683/secrets/DB_PASS/versions/1
       env: "DB_PASS"
-
-images:
-  - "asia-southeast2-docker.pkg.dev/$PROJECT_ID/wesign/backend:1"
