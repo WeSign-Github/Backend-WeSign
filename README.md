@@ -22,6 +22,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#endpoint-api">Endpoint API</a></li>
         <li><a href="#built-with">Built With</a></li>
         <li><a href="#cloud-architecture">Cloud Architecture</a></li>
         <li><a href="#erd">ERD</a></li>
@@ -47,6 +48,12 @@
 </div>
 
 The project aims to create an inclusive and accessible platform that bridges the communication gap between the hearing and the deaf community. By leveraging advanced technology and sign language interpretation, WeSign enables seamless communication and promotes equal opportunities for individuals with hearing impairments. Our mission is to empower the deaf community by providing a digital space where they can express themselves, access information, and connect with others in a way that is natural and meaningful to them. Through innovation and collaboration, WeSign is revolutionizing the way we communicate, ensuring that everyone has a voice and can be heard.
+
+
+### Endpoint API
+``
+https://wesign-backend-jzcjkn2yka-et.a.run.app/
+``
 
 
 ### Built With
