@@ -25,6 +25,8 @@
         <li><a href="#built-with">Built With</a></li>
         <li><a href="#cloud-architecture">Cloud Architecture</a></li>
         <li><a href="#erd">ERD</a></li>
+        <li><a href="#api-docs">API Docs</a></li>
+        <li><a href="#cc-members">CC Members</a></li>
       </ul>
     </li>
     <li>
@@ -34,7 +36,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#api-docs">API Docs</a></li>
   </ol>
 </details>
 
@@ -80,6 +81,21 @@ These technologies have been carefully chosen to ensure a powerful and efficient
 
 ### ERD
 ![cc-ERD drawio](https://github.com/WeSign-Github/Backend-WeSign/assets/49114801/fbeb8a99-9a69-448c-ae95-01f9fff86818)
+
+
+### API Docs
+
+In this section, you can find the API documentation for the WeSign backend. The API documentation is generated using Swagger and OpenAPI. The API documentation is available at [base_domain/api/docs](base_domain/api/docs).
+
+
+### CC Members
+
+
+| Name | Class | ID |
+|------|-------|----|
+| [Muh Zaki Choiruddin](https://www.linkedin.com/in/muh-zaki-choiruddin)   | CC-54    | C136DSX1999 |
+| [Talitha Nabila](https://id.linkedin.com/in/talitha-nabila-3351a11ba)   | CC-50    | C360DSY1942 |
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -134,10 +150,7 @@ Make sure you have the following software installed on your system:
 
 
 
-<!-- USAGE EXAMPLES -->
-## API Docs
 
-In this section, you can find the API documentation for the WeSign backend. The API documentation is generated using Swagger and OpenAPI. The API documentation is available at [https://wesign-backend.herokuapp.com/api-docs](https://wesign-backend.herokuapp.com/api-docs).
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
