@@ -94,7 +94,7 @@ In this section, you can find the API documentation for the WeSign backend. The 
 | Name | Class | ID |
 |------|-------|----|
 | [Muh Zaki Choiruddin](https://www.linkedin.com/in/muh-zaki-choiruddin)   | CC-54    | C136DSX1999 |
-| [Talitha Nabila](https://id.linkedin.com/in/talitha-nabila-3351a11ba)   | CC-50    | C360DSY1942 |
+| [Talitha Nabila](https://www.linkedin.com/in/talitha-nabila/)   | CC-50    | C360DSY1942 |
 
 
 
