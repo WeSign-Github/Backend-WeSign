@@ -2,7 +2,7 @@
 
 <br />
 <div align="center">
-  <img width="60px" src="https://github.com/WeSign-Github/Backend-WeSign/assets/49114801/198ec81d-199c-4159-b630-86f957521bf9" alt="Logo">
+  <img width="100px" src="https://github.com/WeSign-Github/Backend-WeSign/assets/49114801/198ec81d-199c-4159-b630-86f957521bf9" alt="Logo">
 
   <h3 align="center">WeSign</h3>
 
@@ -47,9 +47,6 @@
 
 The project aims to create an inclusive and accessible platform that bridges the communication gap between the hearing and the deaf community. By leveraging advanced technology and sign language interpretation, WeSign enables seamless communication and promotes equal opportunities for individuals with hearing impairments. Our mission is to empower the deaf community by providing a digital space where they can express themselves, access information, and connect with others in a way that is natural and meaningful to them. Through innovation and collaboration, WeSign is revolutionizing the way we communicate, ensuring that everyone has a voice and can be heard.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ### Built With
 
@@ -77,18 +74,12 @@ These technologies have been carefully chosen to ensure a powerful and efficient
 
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 ### Cloud Architecture
 ![cc-Cloud Infrastucture drawio](https://github.com/WeSign-Github/Backend-WeSign/assets/49114801/4ca4d188-90a8-43d5-aab3-3e849cfcaeba)
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 ### ERD
+![cc-ERD drawio](https://github.com/WeSign-Github/Backend-WeSign/assets/49114801/fbeb8a99-9a69-448c-ae95-01f9fff86818)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
