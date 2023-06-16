@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const YAML = require('yamljs');
+const swaggerUI = require('swagger-ui-express');
+const swaggerDocument = YAML.load('./app/api/v1/docs/api-docs.yaml');
 
 const app = express();
 
@@ -23,6 +26,7 @@ app.use('/api/courses', coursesRouter);
 app.use('/api/lessons', lessonsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
