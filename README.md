@@ -2,8 +2,8 @@
 
 <br />
 <div align="center">
-  <!-- <img src="https://github.com/WeSign-Github/Backend-WeSign/assets/49114801/c5c031c9-f81a-4a94-a4da-dbb7fb8053d9" alt="Logo"> -->
-  
+  <img width="100px" src="https://github.com/WeSign-Github/Backend-WeSign/assets/49114801/198ec81d-199c-4159-b630-86f957521bf9" alt="Logo">
+
   <h3 align="center">WeSign</h3>
 
   <p align="center">
@@ -22,9 +22,12 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#endpoint-api">Endpoint API</a></li>
         <li><a href="#built-with">Built With</a></li>
         <li><a href="#cloud-architecture">Cloud Architecture</a></li>
         <li><a href="#erd">ERD</a></li>
+        <li><a href="#api-docs">API Docs</a></li>
+        <li><a href="#cc-members">CC Members</a></li>
       </ul>
     </li>
     <li>
@@ -34,20 +37,23 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#api-docs">API Docs</a></li>
   </ol>
 </details>
 
 
 
 ## About The Project
-
-<!-- ![wesign-shot](https://github.com/WeSign-Github/Backend-WeSign/assets/49114801/8268f658-420e-4113-b14b-5a4f93d56574) -->
+<div align="center">
+  <img src="https://github.com/WeSign-Github/Backend-WeSign/assets/49114801/4c08e25f-24fd-4fa6-97a4-ba9a3fd8b663" alt="Screenshot">
+</div>
 
 The project aims to create an inclusive and accessible platform that bridges the communication gap between the hearing and the deaf community. By leveraging advanced technology and sign language interpretation, WeSign enables seamless communication and promotes equal opportunities for individuals with hearing impairments. Our mission is to empower the deaf community by providing a digital space where they can express themselves, access information, and connect with others in a way that is natural and meaningful to them. Through innovation and collaboration, WeSign is revolutionizing the way we communicate, ensuring that everyone has a voice and can be heard.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Endpoint API
+``
+https://wesign-backend-jzcjkn2yka-et.a.run.app/
+``
 
 
 ### Built With
@@ -76,17 +82,27 @@ These technologies have been carefully chosen to ensure a powerful and efficient
 
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 ### Cloud Architecture
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+![cc-Cloud Infrastucture drawio](https://github.com/WeSign-Github/Backend-WeSign/assets/49114801/4ca4d188-90a8-43d5-aab3-3e849cfcaeba)
 
 
 ### ERD
+![cc-ERD drawio](https://github.com/WeSign-Github/Backend-WeSign/assets/49114801/fbeb8a99-9a69-448c-ae95-01f9fff86818)
+
+
+### API Docs
+
+In this section, you can find the API documentation for the WeSign backend. The API documentation is generated using Swagger and OpenAPI. The API documentation is available at [base_domain/api/docs](base_domain/api/docs).
+
+
+### CC Members
+
+
+| Name | Class | ID |
+|------|-------|----|
+| [Muh Zaki Choiruddin](https://www.linkedin.com/in/muh-zaki-choiruddin)   | CC-54    | C136DSX1999 |
+| [Talitha Nabila](https://www.linkedin.com/in/talitha-nabila/)   | CC-50    | C360DSY1942 |
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -141,10 +157,7 @@ Make sure you have the following software installed on your system:
 
 
 
-<!-- USAGE EXAMPLES -->
-## API Docs
 
-In this section, you can find the API documentation for the WeSign backend. The API documentation is generated using Swagger and OpenAPI. The API documentation is available at [https://wesign-backend.herokuapp.com/api-docs](https://wesign-backend.herokuapp.com/api-docs).
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

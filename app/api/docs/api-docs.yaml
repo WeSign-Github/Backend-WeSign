@@ -1,0 +1,491 @@
+openapi: 3.0.3
+info:
+  title: WeSign - OpenAPI 3.0
+  description: WeSign API by WeSign Company
+  contact:
+    email: talithanabila4c@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+  
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+
+servers:
+  - url: http://localhost:3000/api - dev
+
+tags:
+  - name: auth
+    description: Users account authorization
+    externalDocs:
+      description: Find out more
+      url: https://cloud.google.com/firestore/docs
+      
+  - name: course
+    description: Access to Courses
+    
+  - name: user
+    description: Operations about user
+    
+  - name: lessons
+    description: Access to Lessons
+    
+  - name: text-to-sign
+    description: Text to Sign translation
+    
+    
+paths:
+  /register:
+    post:
+      tags:
+        - auth
+      summary: Register new user
+      description: Add new user
+      operationId: register
+      requestBody:
+        description: Create a new user in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Auth'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Auth'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Auth'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Auth'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Auth'
+        '405':
+          description: Invalid input
+  /courses:
+      get:
+        tags:
+          - course
+        summary: Get All Courses
+        description: Get every listed courses
+        operationId: courses
+        responses:
+          '200':
+            description: Successful operation
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/AllCourses'          
+              application/xml:
+                schema:
+                  $ref: '#/components/schemas/AllCourses'
+          '405':
+            description: Invalid input
+  /courses/{id}:
+      get:
+        tags:
+          - course
+        summary: Get selected course
+        description: Get selected course based on course id
+        parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the course to get
+        operationId: course
+        responses:
+          '200':
+            description: Successful operation
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Course'          
+              application/xml:
+                schema:
+                  $ref: '#/components/schemas/Course'
+          '405':
+            description: Invalid input
+          
+  /me:
+      get:
+        tags:
+          - user
+        summary: Get user profile
+        description: Get user's profile
+        operationId: user
+        responses:
+          '200':
+            description: Successful operation
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/User'          
+              application/xml:
+                schema:
+                  $ref: '#/components/schemas/User'
+          '405':
+            description: Invalid input
+            
+  /learning-progress:
+    get:
+      tags:
+        - user
+      summary: Get user learning progress
+      description: Get user's learning progress
+      operationId: userProgress
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LearningProgress'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LearningProgress'
+        '405':
+          description: Invalid input
+  /insert-avatar:
+    post:
+      tags:
+        - user
+      summary: Update user's avatar
+      description: update user's avatar
+      operationId: userAvatar
+      requestBody:
+        description: Add & update avatar value
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        '405':
+          description: Invalid input
+  
+  
+  /lessons/{id}:
+    get:
+      tags:
+        - lessons
+      summary: Get selected lesson
+      description: Return Lessons by ID
+      operationId: getLessons
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: Numeric ID of the lesson to get
+      responses:
+        '200':
+          description: Successful get All Lessons
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lessons'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Lessons'
+        '405':
+          description: Invalid input
+            
+  /lessons/{id}/completed:
+    post:
+      tags:
+        - lessons
+      summary: post completed lesson
+      description: Return Lessons by ID
+      operationId: postCompletedLessons
+      requestBody:
+          description: Add & update avatar value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/completeLesson'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/completeLesson'
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/completeLesson'
+          required: true
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: Numeric ID of the lesson to get
+      responses:
+        '200':
+          description: Successful get All Lessons
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/completeLesson'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/completeLesson'
+        '405':
+          description: Invalid input
+  
+  /text-to-sign:
+    get:
+      tags:
+        - text-to-sign
+      summary: Get selected lesson
+      description: Return Picture
+      operationId: tts
+      responses:
+        '200':
+          description: Successful get All Lessons
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Text-to-sign'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Text-to-sign'
+        '405':
+          description: Invalid input
+            
+    
+    
+  
+components:
+  schemas:
+    Auth :
+      type: object
+      properties:
+        provider_id:
+          type: string
+          example: AbCdEfg3
+        provider_name:
+          type: string
+          example: firebase
+        first_name:
+          type: string
+          example: Talitha
+        last_name:
+          type: string
+          example: Nabila
+        display_name:
+          type: string
+          example: talithan
+        email:
+          type: string
+          example: talitha@gmail.com
+        avatar:
+          type: string
+          example:
+        message:
+          type: string
+          example: "Successfully register user"
+        error:
+          type: boolean
+          example: false
+      xml:
+        name: user
+      required:
+        - first_name
+        - last_name
+        - display_name
+        - email
+
+    User :
+      type: object
+      properties:
+        provider_id:
+          type: string
+          example: AbCdEfg3
+        provider_name:
+          type: string
+          example: firebase
+        first_name:
+          type: string
+          example: Talitha
+        last_name:
+          type: string
+          example: Nabila
+        display_name:
+          type: string
+          example: talithan
+        email:
+          type: string
+          example: talitha@gmail.com
+        avatar:
+          type: string
+          example: https://storage.googleapis.com/wesign-bucket/
+      xml:
+        name: user
+      required:
+        - first_name
+        - last_name
+        - display_name
+        - email
+        
+    Lessons:
+      type: object
+      properties :
+        id:
+          type: integer
+          example: 1
+        course_id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: A
+        thumbnail:
+          type: string
+          example: https://storage.googleapis.com/wesign-bucket/characters/a.jpg
+        createdAt:
+          type: string
+          example: 2023-05-17T00:00:00.000Z
+        updatedAt:
+          type: string
+          example: 2023-05-17T00:00:00.000Z
+      xml:
+        name: lessons
+      required :
+        - id
+        - course_id
+    
+    CoursesData:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: 101 Alphabets
+        description:
+          type: string
+          example: An alphabetical sign language course
+        createdAt:
+          type: string
+          example: 2023-05-16T00:00:00.000Z
+        updatedAt:
+          type: string
+          example: 2023-05-16T00:00:00.000Z
+          
+    AllCourses:
+      type: object
+      properties :
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CoursesData'
+        message:
+          type: string
+          example: "Successfully get all courses"
+        error:
+          type: boolean
+          example: false
+          
+    Course:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CoursesData'
+        lesson:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lessons'
+        message:
+          type: string
+          example: "Successfully get all courses"
+        error:
+          type: boolean
+          example: false
+          
+    ProgressData:
+      type: object
+      properties:
+        course:
+          type: string
+          example: 101 Alphabet
+        message:
+          type: string
+          example: "Successfully get user learning progress"
+        error:
+          type: boolean
+          example: false
+          
+    LearningProgress:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgressData'
+            
+    ttsData:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        word:
+          type: string
+          example: Baik
+        image:
+          type: string
+          example: https://storage.googleapis.com/wesign-bucket/words/baik.jpg
+        createdAt:
+          type: string
+          example: 2023-05-17T00:00:00.000Z
+        updatedAt:
+          type: string
+          example: 2023-05-17T00:00:00.000Z
+          
+    Text-to-sign:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ttsData'
+            
+    completeLesson:
+      type: object
+      properties:
+        data:
+          type: string
+          example: Lesson Completed
+        message:
+          type: string
+          example: Successfully complete the lesson
+        error:
+          type: boolean
+          example: false
+        
