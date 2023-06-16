@@ -3,7 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const YAML = require('yamljs');
 const swaggerUI = require('swagger-ui-express');
-const swaggerDocument = YAML.load('./app/api/v1/docs/api-docs.yaml');
+const swaggerDocument = YAML.load('./app/api/docs/api-docs.yaml');
 
 const app = express();
 

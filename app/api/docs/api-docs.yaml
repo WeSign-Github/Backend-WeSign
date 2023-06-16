@@ -14,7 +14,7 @@ externalDocs:
   url: http://swagger.io
 
 servers:
-  - url: http://localhost:8000/api - dev
+  - url: http://localhost:3000/api - dev
 
 tags:
   - name: auth
